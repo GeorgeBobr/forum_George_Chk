@@ -1,10 +1,10 @@
 """
-WSGI config for forum project.
+WSGI config for forum item.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
+https://docs.djangoitem.com/en/4.2/howto/deployment/wsgi/
 """
 
 import os
