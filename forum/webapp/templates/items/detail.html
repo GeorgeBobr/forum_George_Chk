@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block link %}
+    {% block styles %}
+        <style>
+            body {
+                background-image: url('https://cs14.pikabu.ru/post_img/2021/10/01/5/163307131914166472.webp');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                min-height: 100vh;
+            }
+        </style>
+    {% endblock %}
+    {% if user.is_authenticated %}>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "tracker:delete_item" item.id%}">Удалить проект</a>
+    </li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <ul class="list-group">
+        <li class="list-group-item">{{ item.description }}</li>
+            <a href="{% url "webapp:comment" item.pk %}" class="btn btn-primary">Ответить</a>
+        </ul>
+        <h3>Комментарии:</h3>
+        {% for comment in comments %}
+            <hr>
+            <b class="disabled">{{ comment.author }}</b>
+            <p>{{ comment.text }}</p>
+            <a href="{% url "webapp:comment_update" comment.pk %}" class="btn btn-primary">Редактировать</a>
+            <a href="{% url "webapp:comment_delete" comment.pk %}" class="btn btn-primary">Удалить</a>
+            <hr>
+        {% endfor %}
+{% endblock %}
