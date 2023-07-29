@@ -24,7 +24,7 @@ class RegisterForm(forms.ModelForm):
         if not password_confirm:
             raise forms.ValidationError('Confirm password!')
         if not avatar:
-            raise forms.ValidationError('Enter your ava')
+            raise forms.ValidationError('Enter your avatar')
 
     def save(self, commit=True):
         user = super().save(commit=False)
