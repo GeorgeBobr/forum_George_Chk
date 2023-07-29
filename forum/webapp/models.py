@@ -17,18 +17,6 @@ class Item(models.Model):
         verbose_name = "Новость"
         verbose_name_plural = "Новость"
 
-class Users(User):
-    user = models.OneToOneField(get_user_model(), related_name='profile', on_delete=models.CASCADE,
-                                verbose_name='Пользователь')
-    avatar = models.ImageField(null=False, blank=False, upload_to='avatars', verbose_name='Аватар')
-
-    def str(self):
-        return self.user.username
-
-    class Meta:
-        db_table = 'users'
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
 
 class Comment(models.Model):
     text = models.TextField()
