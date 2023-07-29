@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block link %}
+
+
+    {% block styles %}
+        <style>
+            body {
+                background-image: url('https://wallpaperaccess.com/full/3430.jpg');
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                min-height: 100vh;
+            }
+        </style>
+    {% endblock %}
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url "webapp:create" %}"><button type="button" class="btn btn-secondary btn-lg">Создать тему</button></a>
+        </li>
+    {% endif %}
+    {% endblock %}
+
+{% block content %}
+    <table class="table table-hover">
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td><a href="{% url "webapp:detail" item.pk%}">{{ item.summary }}</a></td>
+                <td>{{ item.create_data }}</td>
+                <td>{{ item.author }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
