@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All Comments</h2>
+    {% if comments %}
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <strong>User:</strong> {{ comment.user.username }}<br>
+                    <strong>Article:</strong> {{ comment.item.summary }}<br>
+                    <strong>Text:</strong> {{ comment.text }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Coments not found</p>
+    {% endif %}
+{% endblock %}
+
+

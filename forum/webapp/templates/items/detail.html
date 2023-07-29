@@ -21,7 +21,7 @@
 
 {% block content %}
     <ul class="list-group">
-        <li class="list-group-item">{{ item.description }}</li>
+        <li class="list-group-item">{{ .description }}</li>
             <a href="{% url "webapp:comment" item.pk %}" class="btn btn-primary">Ответить</a>
         </ul>
         <h3>Комментарии:</h3>
